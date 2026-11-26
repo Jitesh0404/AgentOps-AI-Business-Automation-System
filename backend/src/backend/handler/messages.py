@@ -122,3 +122,7 @@ INVALID_INPUT = "Invalid input provided."
 MISSING_REQUIRED_FIELDS = "Required fields are missing."
 OPERATION_FAILED = "Operation failed."
 REQUEST_RECEIVED = "Request received successfully."
+
+
+def custom_message(msg: str) -> str:
+    return f"{msg}"

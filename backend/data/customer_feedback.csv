@@ -1,0 +1,7 @@
+customer_id,feedback_text,category,sentiment,rating,created_at
+,The product quality is excellent,Product,positive,5,2026-11-01T10:30:00
+,Delivery was very slow,Delivery,negative,2,2026-11-02T11:00:00
+,Customer support was helpful,Support,positive,5,2026-11-03T12:15:00
+,The pricing is too expensive,Pricing,negative,2,2026-11-04T14:00:00
+,The product is average,Product,neutral,3,2026-11-05T09:00:00
+,Delivery was quick and smooth,Delivery,positive,4,2026-11-06T15:30:00

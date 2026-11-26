@@ -1,14 +1,23 @@
 import uvicorn
 from fastapi import Depends, FastAPI
 from sqlalchemy.orm import Session
-
+from fastapi.middleware.cors import CORSMiddleware
 from backend.database.connection import check_database_connection, get_db
 from backend.handler.error import Error
 from backend.handler.error_handler import AppException, app_exception_handler
 from backend.handler.messages import BAD_REQUEST, OK
 from backend.handler.status_code import HTTP_200_OK, HTTP_400_BAD_REQUEST
+from backend.routes.feedback import router as feedback_router
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.add_exception_handler(AppException, app_exception_handler)
 
@@ -25,6 +34,9 @@ def test(id: int):
 @app.get("/database-test")
 def database_test(db: Session = Depends(get_db)):
     return {"message": "Database session created"}
+
+
+app.include_router(feedback_router, prefix="/api/v1")
 
 
 def main():
